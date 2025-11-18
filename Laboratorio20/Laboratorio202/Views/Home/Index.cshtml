@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Matriz NxN</title>
+</head>
+<body>
+    <h1>Matriz N x N</h1>
+    <div>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <label for="dimension">Ingrese la dimensión N para la matriz N x N:</label>
+            <input type="number" id="dimension" name="dimension" required />
+            <input type="submit" value="Generar Matriz" />
+        }
+    </div>
+    <div>
+        @if (ViewBag.dimension == null)
+        {
+            <p>Ingresar dimension de la matriz para generarla.</p>
+        }
+        else
+        {
+            <h2>Matriz @ViewBag.dimension x @ViewBag.dimension</h2>
+            <table border="1" cellpadding="5" cellspacing="0">
+                @for (int i = 0; i < ViewBag.dimension; i++)
+                {
+                    <tr>
+                        @for (int j = 0; j < ViewBag.dimension; j++)
+                        {
+                            if (i == (ViewBag.dimension - 1) - j)
+                            {
+                                <td>1</td>
+                            }
+                            else
+                            {
+                                <td>0</td>
+                            }
+                        }
+                    </tr>
+
+                }
+            </table>
+        }
+    </div>
+</body>
+</html>
