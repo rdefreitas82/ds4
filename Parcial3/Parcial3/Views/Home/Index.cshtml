@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Parcial3</title>
+</head>
+<body>
+    <h1>Parcial 3 Ricardo De Freitas</h1>
+    <h2>Preguntas</h2>
+
+    @if (ViewBag.Parcial3 == null)
+    {
+        <p>No se encontro nada en la base de datos.</p>
+    }
+    else
+    {
+        foreach (var item in ViewBag.Parcial3)
+        {
+            <h3>@item.Pregunta</h3>
+            <p>@item.Respuesta</p>
+        }
+    }
+
+</body>
+</html>
