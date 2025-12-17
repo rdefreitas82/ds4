@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "PlanillaApi\\PlanillaApi.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "https"
+      },
+      {
+        "Path": "PlanillaWeb\\PlanillaWeb.csproj",
+        "Action": "StartWithoutDebugging",
+        "DebugTarget": "https"
+      }
+    ]
+  }
+]

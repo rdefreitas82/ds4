@@ -1,0 +1,45 @@
+﻿@model List<PlanillaWeb.Models.EmpresaDto>
+@{
+    ViewData["Title"] = "Empresas";
+}
+<h2>Empresas</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nombre Comercial</th>
+            <th scope="col">Razón Social</th>
+            <th scope="col">RUC</th>
+            <th scope="col">DV</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (Model.Count != 0)
+                foreach (var empresa in Model)
+                {
+                    <tr>
+                        <td>@empresa.NombreComercial</td>
+                        <td>@empresa.RazonSocial</td>
+                        <td>@empresa.Ruc</td>
+                        <td>@empresa.Dv</td>
+                        <td>
+                            <a asp-controller ="Empresas" asp-action="Detalle" asp-route-id="@empresa.Id" class="btn btn-primary">Detalle</a>
+                            <a asp-controller ="Empresas" asp-action="Editar" asp-route-id="@empresa.Id" class="btn btn-secondary">Editar</a>
+                            <a asp-controller ="Empresas" asp-action="Borrar" asp-route-id="@empresa.Id" class="btn btn-danger">Borrar</a>
+
+                        </td>
+                    </tr>
+                }
+            else
+            {
+                <tr>
+                    <td colspan="5">No hay empresas registradas.</td>
+                </tr>
+            }
+
+            
+        }
+    </tbody>
+</table>

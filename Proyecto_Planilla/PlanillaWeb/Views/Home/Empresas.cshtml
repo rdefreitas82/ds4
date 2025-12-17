@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+<h2>Empresas</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>NombreComercial</th>
+            <th>Razón Social</th>
+            <th>RUC</th>
+            <th>DV</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            if (ViewBag.empresas.length == 0)
+                foreach (var empresa in ViewBag.empresas)
+                {
+                    <tr>
+                        <td>@empresa.NombreComercial</td>
+                        <td>@empresa.RazonSocial</td>
+                        <td>@empresa.Ruc</td>
+                        <td>@empresa.Dv</td>
+                        <td>
+                            <a href=asp-controller ="Empresas" asp-action="Detalle" asp-asp-all-route-data="@empresa.Id">Detalle</a>
+                            <a href=asp-controller ="Empresas" asp-action="Editar" asp-asp-all-route-data="@empresa.Id">Editar</a>
+                            <a href=asp-controller ="Empresas" asp-action="Borrar" asp-asp-all-route-data="@empresa.Id">Borrar</a>
+
+                        </td>
+                    </tr>
+                }
+            else
+            {
+                <tr>
+                    <td colspan="5">No hay empresas registradas.</td>
+                </tr>
+            }
+        }
+    </tbody>
+ </table>
